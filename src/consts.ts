@@ -31,12 +31,12 @@ interface Site {
 
 // Site configuration
 export const SITE: Site = {
-  website: "https://steipete.me/",
-  author: "Peter Steinberger",
-  profile: "https://steipete.me/about",
-  desc: "AI-powered tools from Swift roots to web frontiers. Every commit lands on GitHub for you to fork & remix.",
-  title: "Peter Steinberger",
-  ogImage: "peter-avatar.jpg",
+  website: "https://jake-builds.github.io/",
+  author: "Jake",
+  profile: "https://jake-builds.github.io/about",
+  desc: "Jake's personal blog and coding experiments.",
+  title: "Jake Builds",
+  ogImage: "avatar.jpg",
   lightAndDarkMode: true,
   postPerIndex: 10,
   postPerPage: 10,
@@ -46,9 +46,9 @@ export const SITE: Site = {
   editPost: {
     enabled: true,
     text: "Edit on GitHub",
-    url: "https://github.com/steipete/steipete.me/edit/main/",
+    url: "https://github.com/jake-builds/jake-builds.github.io/edit/main/",
   },
-  dynamicOgImage: true,
+  dynamicOgImage: false,
   lang: "en",
   timezone: "America/Los_Angeles",
 };
@@ -71,16 +71,12 @@ export const NAV_LINKS: SocialLink[] = [
 // Social media links
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    href: "https://github.com/steipete",
+    href: "https://github.com/jake-builds",
     label: "GitHub",
   },
   {
-    href: "https://twitter.com/steipete",
+    href: "https://twitter.com/jake-builds",
     label: "Twitter",
-  },
-  {
-    href: "https://bsky.app/profile/steipete.me",
-    label: "BlueSky",
   },
   {
     href: "/rss.xml",
