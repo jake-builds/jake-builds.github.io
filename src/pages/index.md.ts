@@ -14,7 +14,7 @@ Jake's personal blog and coding experiments. Every commit lands on GitHub for yo
 
 ## Links
 
-- Twitter: [@jake-builds](https://twitter.com/jake-builds)
+- Twitter: [@jakexshi](https://x.com/jakexshi)
 - GitHub: [@jake-builds](https://github.com/jake-builds)
 - Email: jake@jake-builds.github.io
 
