@@ -19,26 +19,53 @@ const sortedPosts = getSortedPosts(posts);
 const posts2025AndLater = sortedPosts.filter(({ data }) => data.pubDatetime.getFullYear() >= 2025);
 const featuredPosts = posts2025AndLater.filter(({ data }) => data.featured);
 const recentPosts = posts2025AndLater.filter(({ data }) => !data.featured);
+
+const projects = [
+  {
+    name: "OfferLookup",
+    description:
+      "A local-first Next.js app for comparing job offers, compensation details, and negotiation notes.",
+    href: "https://github.com/jake-builds/offerlookup",
+    status: "New",
+  },
+  {
+    name: "jake-builds.github.io",
+    description:
+      "This Astro-powered personal site for writing, experiments, and open source project notes.",
+    href: "https://github.com/jake-builds/jake-builds.github.io",
+    status: "Live",
+  },
+  {
+    name: "Build log",
+    description:
+      "Short notes on what I am learning while experimenting with modern web frameworks and AI-assisted development.",
+    href: "/posts",
+    status: "Writing",
+  },
+];
 ---
 
-<Layout description="Jake's personal blog and coding experiments.">
+<Layout description={SITE.desc}>
   <StructuredData type="WebSite" data={{}} />
   <StructuredData type="Person" data={{}} />
   <Header />
   <main id="main-content" data-layout="index">
-    <section id="hero" class="pt-6 pb-4">
-      <div class="flex flex-col sm:flex-row items-start gap-4">
-        <a href="/about" class="block mx-auto sm:mx-0 group">
+    <section id="hero" class="pt-8 pb-8">
+      <div class="grid items-center gap-8 sm:grid-cols-[auto_1fr]">
+        <a href="/about" class="group mx-auto block sm:mx-0">
           <img 
             src="/jake-avatar.jpg" 
             alt="Jake Builds" 
-            class="w-40 h-40 rounded-full object-cover flex-shrink-0 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
+            class="size-40 flex-shrink-0 rounded-full object-cover ring-4 ring-accent/15 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
           />
         </a>
         <div class="flex-1 text-center sm:text-left">
+          <p class="mb-2 text-sm font-semibold tracking-[0.24em] text-accent uppercase">
+            Jake Builds
+          </p>
           <div class="flex items-center gap-2 justify-center sm:justify-start">
-            <h1 class="my-2 inline-block text-2xl font-bold sm:my-4 sm:text-3xl">
-              Hi, I'm Jake.
+            <h1 class="my-2 inline-block text-3xl font-bold tracking-tight sm:my-4 sm:text-5xl">
+              I build useful little things on the internet.
             </h1>
             <a
               target="_blank"
@@ -55,10 +82,25 @@ const recentPosts = posts2025AndLater.filter(({ data }) => !data.featured);
               <span class="sr-only">RSS Feed</span>
             </a>
           </div>
-          <p>
-            Welcome to my personal blog where I share code and experiments.<br />
-            Every commit lands on GitHub for you to fork & remix.
+          <p class="max-w-2xl text-lg opacity-85">
+            I am Jake, a developer exploring web apps, open source tools, and
+            AI-assisted building. This is my home base for projects, experiments,
+            and notes from the workbench.
           </p>
+          <div class="mt-6 flex flex-col items-center gap-3 sm:flex-row">
+            <LinkButton
+              href="https://github.com/jake-builds"
+              class="rounded-full bg-accent px-5 py-3 font-semibold text-background hover:text-background"
+            >
+              View GitHub
+            </LinkButton>
+            <LinkButton
+              href="/about"
+              class="rounded-full border border-border px-5 py-3 font-semibold"
+            >
+              About Jake
+            </LinkButton>
+          </div>
           {
             // only display if at least one social link is enabled
             SOCIALS.filter((social) => social.active).length > 0 && (
@@ -68,6 +110,38 @@ const recentPosts = posts2025AndLater.filter(({ data }) => !data.featured);
             )
           }
         </div>
+      </div>
+    </section>
+
+    <Hr />
+
+    <section id="projects" class="pt-12 pb-6">
+      <div class="mb-6">
+        <p class="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
+          Featured projects
+        </p>
+        <h2 class="mt-2 text-2xl font-semibold tracking-wide">What I am building</h2>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-3">
+        {
+          projects.map((project) => (
+            <a
+              href={project.href}
+              class="group flex min-h-52 flex-col rounded-2xl border border-border bg-muted/35 p-5 transition hover:-translate-y-1 hover:border-accent hover:shadow-lg"
+            >
+              <div class="mb-4 flex items-center justify-between gap-3">
+                <h3 class="text-lg font-semibold">{project.name}</h3>
+                <span class="rounded-full border border-accent/30 px-2 py-1 text-xs text-accent">
+                  {project.status}
+                </span>
+              </div>
+              <p class="flex-1 opacity-80">{project.description}</p>
+              <span class="mt-5 font-semibold text-accent">
+                Open project <IconArrowRight class="inline-block transition group-hover:translate-x-1" />
+              </span>
+            </a>
+          ))
+        }
       </div>
     </section>
 
@@ -92,6 +166,12 @@ const recentPosts = posts2025AndLater.filter(({ data }) => !data.featured);
     {
       recentPosts.length > 0 && (
         <section id="recent-posts" class="pt-12 pb-6">
+          <div class="mb-2">
+            <p class="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
+              Latest notes
+            </p>
+            <h2 class="mt-2 text-2xl font-semibold tracking-wide">From the blog</h2>
+          </div>
           <ul>
             {recentPosts.map(
               (data, index) =>
@@ -104,7 +184,7 @@ const recentPosts = posts2025AndLater.filter(({ data }) => !data.featured);
 
     <div class="my-8 text-center">
       <LinkButton href="/posts/">
-        All Posts
+        All posts
         <IconArrowRight class="inline-block" />
       </LinkButton>
     </div>

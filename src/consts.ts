@@ -34,7 +34,7 @@ export const SITE: Site = {
   website: "https://jake-builds.github.io/",
   author: "Jake",
   profile: "https://jake-builds.github.io/about",
-  desc: "Jake's personal blog and coding experiments.",
+  desc: "Jake builds small software experiments, open source tools, and notes about modern web development.",
   title: "Jake Builds",
   ogImage: "avatar.jpg",
   lightAndDarkMode: true,
