@@ -25,7 +25,7 @@ const projects = [
     name: "OfferLookup",
     description:
       "A local-first Next.js app for comparing job offers, compensation details, and negotiation notes.",
-    href: "https://github.com/jake-builds/offerlookup",
+    href: "https://github.com/jake-builds/offerlookup?utm_source=jake-builds.github.io&utm_medium=portfolio&utm_campaign=homepage_projects",
     status: "New",
     stack: "Next.js · TypeScript · localStorage",
   },
@@ -126,20 +126,29 @@ const principles = [
             </div>
             <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
               <LinkButton
-                href="https://github.com/jake-builds"
+                href="https://github.com/jake-builds?utm_source=jake-builds.github.io&utm_medium=portfolio&utm_campaign=hero"
                 class="rounded-full bg-accent px-5 py-3 font-semibold text-background hover:text-background"
+                data-analytics-event="homepage_cta_clicked"
+                data-analytics-label="view_github"
+                data-analytics-surface="hero"
               >
                 View GitHub
               </LinkButton>
               <LinkButton
                 href="#projects"
                 class="rounded-full border border-border bg-background/60 px-5 py-3 font-semibold"
+                data-analytics-event="homepage_cta_clicked"
+                data-analytics-label="see_projects"
+                data-analytics-surface="hero"
               >
                 See projects
               </LinkButton>
               <LinkButton
                 href="/about"
                 class="rounded-full px-5 py-3 font-semibold"
+                data-analytics-event="homepage_cta_clicked"
+                data-analytics-label="about_jake"
+                data-analytics-surface="hero"
               >
                 About Jake
               </LinkButton>
@@ -172,6 +181,9 @@ const principles = [
             <a
               href={project.href}
               class="group flex min-h-64 flex-col rounded-2xl border border-border bg-muted/35 p-5 transition hover:-translate-y-1 hover:border-accent hover:bg-muted/50 hover:shadow-lg"
+              data-analytics-event="project_card_clicked"
+              data-analytics-label={project.name}
+              data-analytics-surface="homepage_projects"
             >
               <div class="mb-4 flex items-center justify-between gap-3">
                 <h3 class="text-lg font-semibold">{project.name}</h3>

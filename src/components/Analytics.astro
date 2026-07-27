@@ -4,17 +4,31 @@
 
 <!-- Vercel Analytics -->
 <script>
-  if (typeof window !== 'undefined' && import.meta.env.PROD) {
-    import('@vercel/analytics').then(({ inject }) => {
+  if (typeof window !== "undefined" && import.meta.env.PROD) {
+    import("@vercel/analytics").then(({ inject, track }) => {
       inject();
+
+      document.addEventListener("click", event => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+
+        const analyticsElement = target.closest("[data-analytics-event]");
+        if (!(analyticsElement instanceof HTMLElement)) return;
+
+        track(analyticsElement.dataset.analyticsEvent || "site_click", {
+          label: analyticsElement.dataset.analyticsLabel || "unknown",
+          href: analyticsElement.getAttribute("href") || "",
+          surface: analyticsElement.dataset.analyticsSurface || "unknown",
+        });
+      });
     });
   }
 </script>
 
 <!-- Vercel Speed Insights -->
 <script>
-  if (typeof window !== 'undefined' && import.meta.env.PROD) {
-    import('@vercel/speed-insights').then(({ injectSpeedInsights }) => {
+  if (typeof window !== "undefined" && import.meta.env.PROD) {
+    import("@vercel/speed-insights").then(({ injectSpeedInsights }) => {
       injectSpeedInsights();
     });
   }
