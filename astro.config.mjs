@@ -107,8 +107,7 @@ export default defineConfig({
       manifest: {
         name: "Jake Builds",
         short_name: "jake-builds",
-        description:
-          "Jake's personal blog and coding experiments.",
+        description: "Jake's personal blog and coding experiments.",
         theme_color: "#006cac",
         background_color: "#fdfdfd",
         display: "standalone",
