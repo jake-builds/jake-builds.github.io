@@ -1,4 +1,6 @@
 ---
+import { LINKEDIN_URL, SITE } from "@/config";
+
 export interface Props {
   type: "BlogPosting" | "Person" | "WebSite";
   data: any;
@@ -49,10 +51,11 @@ if (type === "BlogPosting") {
     sameAs: [
       "https://github.com/jake-builds",
       "https://x.com/jakexshi",
+      LINKEDIN_URL,
     ],
     jobTitle: "Software Engineer",
-    description:
-      "Jake's personal blog and coding experiments.",
+    description: SITE.desc,
+    knowsAbout: ["Web development", "AI-assisted development", "Prompt design", "Open source"],
   };
 } else if (type === "WebSite") {
   structuredData = {
@@ -60,8 +63,7 @@ if (type === "BlogPosting") {
     "@type": "WebSite",
     name: "Jake Builds",
     url: "https://jake-builds.github.io",
-    description:
-      "Jake's personal blog and coding experiments.",
+    description: SITE.desc,
     author: {
       "@type": "Person",
       name: "Jake Builds",

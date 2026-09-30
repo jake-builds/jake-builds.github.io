@@ -34,9 +34,9 @@ export const SITE: Site = {
   website: "https://jake-builds.github.io/",
   author: "Jake",
   profile: "https://jake-builds.github.io/about",
-  desc: "Jake builds small software experiments, open source tools, and notes about modern web development.",
+  desc: "Jake builds web apps and explores applied AI through practical projects, clear prompts, and AI-assisted development. Connect about AI engineering opportunities.",
   title: "Jake Builds",
-  ogImage: "avatar.jpg",
+  ogImage: "jake-avatar.jpg",
   lightAndDarkMode: true,
   postPerIndex: 10,
   postPerPage: 10,
@@ -55,6 +55,7 @@ export const SITE: Site = {
 
 export const SITE_TITLE = SITE.title;
 export const SITE_DESCRIPTION = SITE.desc;
+export const LINKEDIN_URL = "https://www.linkedin.com/in/jakeshi";
 
 // Navigation links
 export const NAV_LINKS: SocialLink[] = [
@@ -71,6 +72,10 @@ export const NAV_LINKS: SocialLink[] = [
 // Social media links
 export const SOCIAL_LINKS: SocialLink[] = [
   {
+    href: LINKEDIN_URL,
+    label: "LinkedIn",
+  },
+  {
     href: "https://github.com/jake-builds",
     label: "GitHub",
   },
@@ -86,6 +91,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 
 // Icon map for social media
 export const ICON_MAP: Record<string, string> = {
+  LinkedIn: "linkedin",
   GitHub: "github",
   Twitter: "twitter",
   BlueSky: "bsky",

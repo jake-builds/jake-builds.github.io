@@ -1,15 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
-import IconRss from "@/assets/icons/IconRss.svg";
 import Card from "@/components/Card.astro";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import Hr from "@/components/Hr.astro";
 import LinkButton from "@/components/LinkButton.astro";
-import Socials from "@/components/Socials.astro";
 import StructuredData from "@/components/StructuredData.astro";
-import { SITE, SOCIALS } from "@/config";
+import { LINKEDIN_URL, SITE } from "@/config";
 import Layout from "@/layouts/Layout.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 
@@ -26,175 +24,94 @@ const projects = [
     description:
       "A local-first Next.js app for comparing job offers, compensation details, and negotiation notes.",
     href: "https://jake-builds.github.io/offerlookup/?utm_source=jake-builds.github.io&utm_medium=portfolio&utm_campaign=homepage_projects",
-    status: "New",
+    category: "Decision-making tool",
+    detail: "A practical product problem: make the tradeoffs between offers easier to compare in one place.",
+    action: "Try OfferLookup",
     stack: "Next.js · TypeScript · localStorage",
   },
   {
-    name: "jake-builds.github.io",
+    name: "Jake Builds",
     description:
-      "This Astro-powered personal site for writing, experiments, and open source project notes.",
-    href: "https://github.com/jake-builds/jake-builds.github.io",
-    status: "Live",
+      "An AI-assisted portfolio redesign: from a general build log to a clearer introduction, inspectable projects, and a direct contact path.",
+    href: "/projects/ai-assisted-portfolio",
+    category: "AI-assisted development case study",
+    detail: "See the human direction, AI implementation, and browser checks across six screen widths. Live site and source included.",
+    action: "Read the case study",
     stack: "Astro · Tailwind · GitHub Pages",
   },
-  {
-    name: "Build log",
-    description:
-      "Short notes on what I am learning while experimenting with modern web frameworks and AI-assisted development.",
-    href: "/posts",
-    status: "Writing",
-    stack: "Notes · demos · source code",
-  },
-];
-
-const highlights = [
-  "Open source by default",
-  "Small products shipped fast",
-  "Modern web + AI workflows",
 ];
 
 const principles = [
   {
-    title: "Build in public",
-    description: "Every project should leave a trail: code, notes, mistakes, and decisions.",
+    title: "Make AI useful",
+    description: "Explore clearer prompts, better context, and smaller steps that turn an idea into something testable.",
   },
   {
-    title: "Keep it useful",
-    description: "Small tools beat big intentions when they solve a real problem today.",
+    title: "Keep human judgment",
+    description: "Use generated work as a starting point. Read the code, check the result, and stay involved in the decisions.",
   },
   {
-    title: "Make it forkable",
-    description: "The best experiments are easy for someone else to inspect, remix, and improve.",
+    title: "Leave something to inspect",
+    description: "Share working software, source code, and notes so the work can speak for itself.",
   },
 ];
 ---
 
-<Layout description={SITE.desc}>
+<Layout title="Jake Builds | Software Developer Exploring Applied AI" description="Jake builds web apps and explores applied AI through prompts, projects, and AI-assisted development. Explore the work and connect about AI engineering opportunities.">
   <StructuredData type="WebSite" data={{}} />
   <StructuredData type="Person" data={{}} />
   <Header />
   <main id="main-content" data-layout="index">
-    <section id="hero" class="max-w-5xl pt-10 pb-10">
-      <div class="relative overflow-hidden rounded-[2rem] border border-border bg-muted/30 p-6 shadow-sm sm:p-10">
-        <div class="absolute -top-24 -right-24 size-64 rounded-full bg-accent/15 blur-3xl"></div>
-        <div class="absolute -bottom-28 -left-20 size-60 rounded-full bg-accent/10 blur-3xl"></div>
-
-        <div class="relative grid items-center gap-8 lg:grid-cols-[auto_1fr]">
-          <a href="/about" class="group mx-auto block lg:mx-0">
-            <img 
-              src="/jake-avatar.jpg" 
-              alt="Jake Builds" 
-              class="size-44 flex-shrink-0 rounded-3xl object-cover ring-4 ring-background transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-            />
-          </a>
-          <div class="flex-1 text-center lg:text-left">
-            <div class="mb-3 flex items-center justify-center gap-3 lg:justify-start">
-              <p class="text-sm font-semibold tracking-[0.24em] text-accent uppercase">
-                Jake Builds
-              </p>
-              <a
-                target="_blank"
-                href="/rss.xml"
-                class="inline-flex rounded-full border border-border p-2"
-                aria-label="rss feed"
-                title="RSS Feed"
-              >
-                <IconRss
-                  width={18}
-                  height={18}
-                  class="stroke-accent stroke-3"
-                />
-                <span class="sr-only">RSS Feed</span>
-              </a>
-            </div>
-            <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-6xl">
-              Shipping small, useful software in public.
-            </h1>
-            <p class="mt-5 max-w-2xl text-lg leading-8 opacity-85 lg:text-xl">
-              I am Jake, a developer exploring web apps, open source tools, and
-              AI-assisted building. This is my home base for projects, experiments,
-              and notes from the workbench.
-            </p>
-            <div class="mt-6 flex flex-wrap justify-center gap-2 lg:justify-start">
-              {
-                highlights.map((highlight) => (
-                  <span class="rounded-full border border-border bg-background/70 px-3 py-1 text-sm">
-                    {highlight}
-                  </span>
-                ))
-              }
-            </div>
-            <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
-              <LinkButton
-                href="https://github.com/jake-builds?utm_source=jake-builds.github.io&utm_medium=portfolio&utm_campaign=hero"
-                class="rounded-full bg-accent px-5 py-3 font-semibold text-background hover:text-background"
-                data-analytics-event="homepage_cta_clicked"
-                data-analytics-label="view_github"
-                data-analytics-surface="hero"
-              >
-                View GitHub
-              </LinkButton>
-              <LinkButton
-                href="#projects"
-                class="rounded-full border border-border bg-background/60 px-5 py-3 font-semibold"
-                data-analytics-event="homepage_cta_clicked"
-                data-analytics-label="see_projects"
-                data-analytics-surface="hero"
-              >
-                See projects
-              </LinkButton>
-              <LinkButton
-                href="/about"
-                class="rounded-full px-5 py-3 font-semibold"
-                data-analytics-event="homepage_cta_clicked"
-                data-analytics-label="about_jake"
-                data-analytics-surface="hero"
-              >
-                About Jake
-              </LinkButton>
-            </div>
-            {
-              // only display if at least one social link is enabled
-              SOCIALS.filter((social) => social.active).length > 0 && (
-                <div class="mt-5 flex flex-row items-center justify-center lg:justify-start">
-                  <Socials />
-                </div>
-              )
-            }
-          </div>
+    <section id="hero" class="profile-section max-w-5xl">
+      <div class="profile-heading">
+        <img src="/jake-avatar.jpg" alt="Jake's profile avatar" width="88" height="88" fetchpriority="high" class="profile-avatar" />
+        <div>
+          <p class="section-label">Software developer · Applied AI</p>
+          <h1>Jake Builds</h1>
         </div>
       </div>
+      <p class="profile-statement">Useful software.<br /><span class="text-accent">Thoughtful use of AI.</span></p>
+      <p class="profile-description">
+        I build web apps and explore how AI can help turn ideas into working products.
+        My focus: clear prompts, practical tools, and human judgment throughout the process.
+      </p>
+      <div class="profile-actions">
+        <LinkButton href={LINKEDIN_URL} class="contact-button" data-analytics-event="homepage_cta_clicked" data-analytics-label="recruiter_linkedin" data-analytics-surface="hero">
+          Connect on LinkedIn <IconArrowRight class="inline-block" />
+        </LinkButton>
+        <LinkButton href="#projects" class="project-button" data-analytics-event="homepage_cta_clicked" data-analytics-label="see_projects" data-analytics-surface="hero">
+          Explore my work <IconArrowRight class="inline-block" />
+        </LinkButton>
+      </div>
+      <p class="opportunity-note">Interested in applied AI engineering opportunities.</p>
     </section>
 
     <Hr />
 
     <section id="projects" class="max-w-5xl pt-12 pb-6">
       <div class="mb-6">
-        <p class="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
-          Featured projects
+        <p class="section-label">
+          Selected work
         </p>
-        <h2 class="mt-2 text-3xl font-semibold tracking-wide">What I am building</h2>
+        <h2 class="mt-2 text-3xl font-semibold">From idea to working software</h2>
       </div>
-      <div class="grid gap-4 sm:grid-cols-3">
+      <div class="grid gap-5 md:grid-cols-2">
         {
           projects.map((project) => (
             <a
               href={project.href}
-              class="group flex min-h-64 flex-col rounded-2xl border border-border bg-muted/35 p-5 transition hover:-translate-y-1 hover:border-accent hover:bg-muted/50 hover:shadow-lg"
+              class="project-card group flex flex-col rounded-lg border border-border p-6 transition-colors hover:border-accent"
               data-analytics-event="project_card_clicked"
               data-analytics-label={project.name}
               data-analytics-surface="homepage_projects"
             >
-              <div class="mb-4 flex items-center justify-between gap-3">
-                <h3 class="text-lg font-semibold">{project.name}</h3>
-                <span class="rounded-full border border-accent/30 px-2 py-1 text-xs text-accent">
-                  {project.status}
-                </span>
-              </div>
-              <p class="flex-1 opacity-80">{project.description}</p>
-              <p class="mt-5 text-sm opacity-70">{project.stack}</p>
-              <span class="mt-4 font-semibold text-accent">
-                Open project <IconArrowRight class="inline-block transition group-hover:translate-x-1" />
+              <p class="section-label mb-3">{project.category}</p>
+              <h3 class="mb-3 text-2xl font-semibold">{project.name}</h3>
+              <p class="leading-7">{project.description}</p>
+              <p class="mt-3 flex-1 leading-7 opacity-80">{project.detail}</p>
+              <p class="mt-6 border-t border-border pt-4 text-sm">{project.stack}</p>
+              <span class="mt-5 font-semibold text-accent">
+                {project.action} <IconArrowRight class="inline-block" />
               </span>
             </a>
           ))
@@ -206,17 +123,17 @@ const principles = [
 
     <section id="principles" class="max-w-5xl pt-12 pb-6">
       <div class="mb-6">
-        <p class="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
-          Working style
+        <p class="section-label">
+          Approach
         </p>
-        <h2 class="mt-2 text-3xl font-semibold tracking-wide">How I build</h2>
+        <h2 class="mt-2 text-3xl font-semibold">AI-assisted. Human-directed.</h2>
       </div>
       <div class="grid gap-4 md:grid-cols-3">
         {
           principles.map((principle) => (
-            <article class="rounded-2xl border border-border p-5">
+            <article class="border-t-2 border-accent pt-5">
               <h3 class="text-lg font-semibold">{principle.title}</h3>
-              <p class="mt-3 opacity-80">{principle.description}</p>
+              <p class="mt-3 leading-7 opacity-80">{principle.description}</p>
             </article>
           ))
         }
@@ -245,10 +162,10 @@ const principles = [
       recentPosts.length > 0 && (
         <section id="recent-posts" class="max-w-5xl pt-12 pb-6">
           <div class="mb-2">
-            <p class="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
+            <p class="section-label">
               Latest notes
             </p>
-            <h2 class="mt-2 text-2xl font-semibold tracking-wide">From the blog</h2>
+            <h2 class="mt-2 text-2xl font-semibold">From the blog</h2>
           </div>
           <ul>
             {recentPosts.map(
@@ -266,9 +183,74 @@ const principles = [
         <IconArrowRight class="inline-block" />
       </LinkButton>
     </div>
+    <section id="contact" class="contact-section max-w-5xl">
+      <p class="section-label">Let's talk</p>
+      <h2 class="mt-2 text-3xl font-bold">Building a team around applied AI?</h2>
+      <p class="mt-4 max-w-2xl leading-7">I'd like to hear about the problems you are solving and where a developer focused on useful products and AI-assisted workflows could contribute.</p>
+      <div class="profile-actions">
+        <LinkButton href={LINKEDIN_URL} class="contact-button" data-analytics-event="homepage_cta_clicked" data-analytics-label="recruiter_linkedin" data-analytics-surface="contact">
+          Connect on LinkedIn <IconArrowRight class="inline-block" />
+        </LinkButton>
+        <LinkButton href="https://github.com/jake-builds" class="project-button">GitHub <IconArrowRight class="inline-block" /></LinkButton>
+        <LinkButton href="/about" class="project-button">More about me <IconArrowRight class="inline-block" /></LinkButton>
+      </div>
+    </section>
   </main>
   <Footer />
 </Layout>
+
+<style>
+  main {
+    font-family: "Atkinson", sans-serif;
+    letter-spacing: 0;
+  }
+  .profile-section {
+    padding-top: 3rem;
+    padding-bottom: 2.5rem;
+    background-image: linear-gradient(90deg, color-mix(in srgb, var(--foreground) 7%, transparent) 1px, transparent 1px);
+    background-size: 64px 100%;
+    background-clip: content-box;
+  }
+  .profile-heading {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .profile-heading > div { min-width: 0; }
+  .profile-avatar {
+    width: 88px;
+    height: 88px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  h1 { font-size: 3rem; font-weight: 700; line-height: 1.1; }
+  .section-label { color: var(--accent); font-size: 0.875rem; font-weight: 700; }
+  .profile-statement { margin-top: 1.75rem; font-size: 2.75rem; font-weight: 700; line-height: 1.12; }
+  .profile-description { max-width: 42rem; margin-top: 1.25rem; font-size: 1.125rem; line-height: 1.65; }
+  .profile-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.5rem; }
+  :global(.contact-button) { display: inline-flex; gap: 0.5rem; align-items: center; border-radius: 4px; background: var(--accent); color: var(--background); padding: 0.75rem 1rem; font-weight: 700; }
+  :global(.contact-button:hover) { color: var(--background); text-decoration: underline; }
+  :global(.project-button) { display: inline-flex; gap: 0.5rem; align-items: center; padding: 0.75rem 0; font-weight: 700; }
+  .opportunity-note { margin-top: 1rem; font-size: 0.875rem; }
+  .project-card { background: var(--background); border-top: 3px solid var(--accent); }
+  .project-card:nth-child(2) { border-top-color: #269487; }
+  .contact-section { margin-top: 2rem; padding-top: 2rem; padding-bottom: 3rem; border-top: 2px solid var(--accent); }
+  @media (max-width: 480px) {
+    .profile-section { padding-top: 1.5rem; }
+    .profile-heading { gap: 0.875rem; }
+    .profile-avatar { width: 64px; height: 64px; }
+    h1 { font-size: 2.25rem; }
+    .profile-statement { font-size: 2rem; }
+    .profile-actions { gap: 0.5rem 1rem; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .profile-heading, .profile-statement, .profile-description { animation: reveal 450ms ease-out both; }
+    .profile-statement { animation-delay: 60ms; }
+    .profile-description { animation-delay: 120ms; }
+    @keyframes reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  }
+</style>
 
 <script>
   document.addEventListener("astro:page-load", () => {

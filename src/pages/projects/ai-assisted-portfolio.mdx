@@ -1,0 +1,42 @@
+---
+layout: ../../layouts/AboutLayout.astro
+title: "Case Study: An AI-Assisted Portfolio"
+description: "How Jake used an AI coding assistant to reshape an Astro portfolio around applied AI opportunities, with browser checks and inspectable source code."
+---
+
+import { LINKEDIN_URL } from '../../config';
+
+**AI-assisted development · Astro · TypeScript · Tailwind · GitHub Pages**
+
+[Explore the live site](/) · [Inspect the source](https://github.com/jake-builds/jake-builds.github.io)
+
+## The Problem
+
+My site was a place for experiments and short posts, but it did not give recruiters a clear picture of my interests or an obvious way to reach me. I wanted it to communicate my interest in applied AI engineering without inventing experience or exposing private work.
+
+## My Role and AI's Role
+
+I set the goal, chose applied AI engineering as the focus, supplied my public LinkedIn profile, and requested the update and publication. The AI coding assistant inspected the existing code, proposed and implemented changes, and ran build and browser checks.
+
+This is a case study in using AI to develop software. The site itself does not run an AI model, and this project is not evidence of production ML deployment.
+
+## The Implementation
+
+- Reworked the homepage around a clear introduction, two public projects, and a direct LinkedIn contact path.
+- Replaced the contribution graph and newsletter emphasis on the About page with project descriptions and role interests.
+- Updated page descriptions, public profile links, and social-preview imagery. Restricted article metadata to actual posts.
+- Kept the existing Astro stack and static publishing workflow rather than adding a new service or dependency.
+
+## Verification and Results
+
+The production build passed. Browser checks at **320, 390, 640, 768, 1280, and 1920 pixels** found a non-wrapping footer that caused horizontal overflow on mobile. After the fix, all six widths passed the overflow check.
+
+The mobile menu, About-to-Contact navigation, LinkedIn destinations, and profile-image loading were checked. Desktop and mobile screenshots were reviewed, including both color themes. The dark-theme background was softened after visual inspection.
+
+These are implementation checks, not recruiting outcomes. There is no measured increase in search traffic, recruiter messages, or conversion to report. Existing route-conflict and archive-indexing warnings remain outside this redesign's scope.
+
+## What I Take From It
+
+A useful AI workflow needs more than a prompt: a concrete goal, explicit boundaries, and checks that can catch mistakes. Here, browser evidence caught a real layout problem that a successful build alone did not reveal.
+
+<p><a href={LINKEDIN_URL}>Talk with me about applied AI engineering</a> or <a href="/#projects">explore the other project</a>.</p>

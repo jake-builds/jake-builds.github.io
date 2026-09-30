@@ -1,4 +1,4 @@
-import { SITE } from "./consts";
+import { LINKEDIN_URL, SITE } from "./consts";
 
 export const SOCIALS = [
   {
@@ -17,17 +17,17 @@ export const SOCIALS = [
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/jake-builds/",
+    href: LINKEDIN_URL,
     linkTitle: `${SITE.title} on LinkedIn`,
     icon: "linkedin",
-    active: false,
+    active: true,
   },
   {
     name: "Mail",
     href: "mailto:jake@jake-builds.github.io",
     linkTitle: `Send an email to ${SITE.title}`,
     icon: "mail",
-    active: true,
+    active: false,
   },
 ] as const;
 

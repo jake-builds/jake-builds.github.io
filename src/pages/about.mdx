@@ -1,41 +1,36 @@
 ---
 layout: ../layouts/AboutLayout.astro
-title: "About"
-description: "Creator of Jake Builds. Software developer, open source contributor, and tinkerer of modern web technology."
+title: "About Jake"
+description: "Meet Jake, a software developer exploring applied AI, web apps, and AI-assisted workflows. View public projects and connect about AI engineering opportunities."
 ---
 
-import NewsletterForm from '../components/NewsletterForm.astro';
+import { LINKEDIN_URL } from '../config';
 
 <div class="flex flex-col md:flex-row gap-8 items-start">
-  <div class="w-full md:w-auto md:flex-shrink-0 md:max-w-[281px]">
-    <img src="/jake-avatar.jpg" alt="Jake's developer profile avatar" class="w-full h-auto rounded-lg" />
+  <div class="w-32 shrink-0">
+    <img src="/jake-avatar.jpg" alt="Jake's developer profile avatar" width="128" height="128" class="w-full h-auto rounded-lg" />
   </div>
   <div class="flex-1 min-w-0">
-    <p>Hi, I'm Jake. I build small software projects, developer tools, and web experiments in public.</p>
-    <p>Right now, I am exploring modern frameworks, API integrations, local-first product ideas, and AI-assisted development workflows.</p>
-    <p>This site is my build log: a place to share what I ship, what I learn, and the source code behind the experiments.</p>
-    <p>Everything here points back to GitHub so you can inspect, fork, or remix the work.</p>
+    <p>I'm Jake, a software developer interested in applied AI engineering. I build web apps and explore how AI can help turn a useful idea into working software.</p>
+    <p>I'm especially interested in the space between a prompt and a product: giving AI the right context, breaking work into testable steps, and knowing when to question the output.</p>
+    <p><a href={LINKEDIN_URL}>Connect with me on LinkedIn</a> to talk about applied AI engineering opportunities.</p>
   </div>
 </div>
 
-## GitHub Activity
+## Work You Can Explore
 
-<div class="bg-secondary p-0 rounded-lg">
-  <img 
-    src="https://ghchart.rshah.org/jake-builds" 
-    alt="Jake's GitHub Contribution Graph" 
-    class="w-full"
-    style="max-width: 100%; height: auto;"
-    loading="lazy"
-  />
-</div>
+- [OfferLookup](https://jake-builds.github.io/offerlookup/): a local-first tool for comparing job offers, compensation details, and negotiation notes, built with Next.js and TypeScript.
+- [AI-assisted portfolio case study](/projects/ai-assisted-portfolio): how this Astro site was redesigned, including the human direction, AI implementation, browser checks, and public source.
+- [AI Lately](/posts/2026/hi-again/#ai-lately): a short note on my approach to prompts, projects, and AI-assisted work.
 
-I build what excites me and release the useful parts as open source.
+## How I Approach the Work
 
-[Follow me on GitHub](https://github.com/jake-builds/).
+Start with a concrete problem. Build something small enough to try. Use AI to help with exploration and implementation, while keeping responsibility for the decisions and the result.
 
-## Stay Connected
+My current experiments bring together modern web development, local-first product ideas, prompt design, and AI-assisted workflows. I share the public parts here without exposing private work or data.
 
-<NewsletterForm />
+## Let's Talk
 
-If you'd like to connect or have questions about my work, feel free to reach out through any of the links below.
+I'm interested in applied AI engineering opportunities where the goal is useful software, not just a convincing demo. Tell me about your team, the problem you are working on, and the role you have in mind.
+
+<p><a href={LINKEDIN_URL}>Connect on LinkedIn</a> or <a href="https://github.com/jake-builds">explore my GitHub projects</a>.</p>
